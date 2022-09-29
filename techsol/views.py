@@ -1,3 +1,5 @@
+from ast import Return
+from signal import siginterrupt
 from rest_framework.response import Response
 from rest_framework.decorators import api_view,permission_classes
 from .models import *
@@ -6,6 +8,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth.hashers import make_password
 from rest_framework.permissions import IsAdminUser,IsAuthenticated
+import json
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -91,3 +94,5 @@ def get_contact_purchase(request):
     data=Contact_purchase.objects.all()
     serilizer=Contact_purchase_srilizer(data,many=True)
     return Response(serilizer.data)
+
+
