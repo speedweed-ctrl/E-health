@@ -1,5 +1,6 @@
 from email import header
 from unicodedata import name
+from xml.parsers.expat import model
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -93,6 +94,25 @@ class Drugs_list(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+class Drug_instocks(models.Model):
+    name=models.CharField(max_length=50)
+    composition=models.CharField(max_length=250)
+    prix_unitaire=models.FloatField()
+    code=models.CharField(max_length=9)
+    inRuptuer=models.BooleanField(default=False)
+    dosage=models.IntegerField()
+    quantity_instock=models.IntegerField()
+    User=models.ForeignKey(to=User , on_delete=models.CASCADE)
+    Pharmacie=models.ForeignKey(to=Pharmacie,on_delete=models.CASCADE)
+    createdAt=models.DateField(auto_now_add=True)
+
+    class Meta:
+        ordering=('-createdAt',)
+
+    def __str__(self):
+        return str(f'{self.name} in {self.Pharmacie} stock info')
+
   
 class ContactMail_DPM(models.Model):
     email=models.EmailField()
@@ -126,6 +146,8 @@ class News(models.Model):
     user=models.ForeignKey(to=User,on_delete=models.PROTECT)
     is_Server=models.BooleanField( default=False)
     is_approved=models.BooleanField(default=False)
+
+
 
 
 
