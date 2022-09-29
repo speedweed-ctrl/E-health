@@ -139,13 +139,35 @@ class Contact_echange(models.Model):
     def __str__(self):
         return str(self.name)
 
-class News(models.Model):
+class Contact_purchase(models.Model):
+    email=models.EmailField()
+    name=models.CharField(max_length=50)
+    massage=models.CharField(max_length=250)
+    product=models.CharField(max_length=80)
+    quantity=models.IntegerField()
+    createdAt=models.DateField(auto_now=True)
+
+    class Meta:
+        ordering = ('-createdAt',)
+
+    def __str__(self):
+        return str(self.name)
+
+class New(models.Model):
     header=models.CharField(max_length=80)
     subHeader=models.CharField(max_length=80)
     content=models.TextField()
     user=models.ForeignKey(to=User,on_delete=models.PROTECT)
     is_Server=models.BooleanField( default=False)
     is_approved=models.BooleanField(default=False)
+    createdAt=models.DateField(auto_now=True)
+
+    class Meta:
+        ordering = ('-createdAt',)
+
+    def __str__(self):
+        return str(self.header)
+
 
 
 

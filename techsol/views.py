@@ -54,4 +54,40 @@ def get_allUsers(request):
     return Response(serializers.data)
 #-----------------------------------------------------------------------------------------------------
 
+@api_view(['GET'])
+def get_ruptered_data(request):
+    data=Drugs_list.objects.filter(inRuptuer=True)
+    serilizer=Drug_list_serilizer(data,many=True)
+    return Response(serilizer.data)
 
+@api_view(['GET'])
+def get_news(request):
+    data=New.objects.filter(is_approved=True)
+    serilizer=News_serilizer(data,many=True)
+    return Response(serilizer.data)
+
+@api_view(['GET'])
+def get_urgent_news(request):
+    data=New.objects.filter(is_Server=True)
+    serilizer=News_serilizer(data,many=True)
+    return Response(serilizer.data)
+
+
+
+@api_view(['GET'])
+def get_contact_dpm(request):
+    data=ContactMail_DPM.objects.all()
+    serilizer=Contact_mail_serilizer(data,many=True)
+    return Response(serilizer.data)
+
+@api_view(['GET'])
+def get_contact_echange(request):
+    data=Contact_echange.objects.all()
+    serilizer=Contact_echange_serilizer(data,many=True)
+    return Response(serilizer.data)
+
+@api_view(['GET'])
+def get_contact_purchase(request):
+    data=Contact_purchase.objects.all()
+    serilizer=Contact_purchase_srilizer(data,many=True)
+    return Response(serilizer.data)

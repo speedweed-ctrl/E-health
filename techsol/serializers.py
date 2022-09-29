@@ -89,9 +89,14 @@ class Contact_echange_serilizer(ModelSerializer):
         model=Contact_echange
         fields='__all__'
 
+class Contact_purchase_srilizer(ModelSerializer):
+    class Meta:
+        model=Contact_purchase
+        fields='__all__'
+
 class News_serilizer(ModelSerializer):
     class Meta:
-        model=News
+        model=New
         fields='__all__'
 
 
