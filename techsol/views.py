@@ -47,49 +47,11 @@ def getUserProfile(request):
     return Response(serializers.data)
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
+
 def get_allUsers(request):
     user = User.objects.all()
     serializers = UserSerrializer(user, many=True)
     return Response(serializers.data)
 #-----------------------------------------------------------------------------------------------------
 
-@api_view(['GET'])
-def get_all_products(request):
-    prods=Product.objects.all()
-    serilizer = ProductSerializer(prods ,many=True)
-    return Response(serilizer.data)   
 
-@api_view(['GET'])
-def get_all_products_bycat(request,pk):
-    prods=Product.objects.filter(categorie=pk)
-    serilizer = ProductSerializer(prods ,many=True)
-    return Response(serilizer.data)   
-
-@api_view(['GET']) 
-def get_reviews(request,pk):
-    rev= Review.objects.filter(product=pk)
-    seriailizer=ReviewSerializer(rev,many=True)
-    return Response(seriailizer.data)
-
-@api_view(['GET'])
-def get_all_categories(request):
-    cat=Categorie.objects.all()
-    seializer = CAtegorieSerializer(cat,many=True)
-    return Response(seializer.data)
-
-@api_view(['POST'])
-def recive_contact(request):
-    data=request.data
-    cont = contactMail.objects.create(
-        email=data['email'],
-        name=data['name'],
-        massage=data['message'],
-    )
-    serilaizer=ContactSerializer(cont,many=False)
-    return Response(serilaizer.data)
-
-@api_view(['GET'])
-def get_certif(request,code):
-    certif=Certif.objects.filter(certifCode=code)
-    serilizer=CertifSerializer(certif,many=True)
-    return Response(serilizer.data)

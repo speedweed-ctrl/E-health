@@ -1,4 +1,4 @@
-from dataclasses import fields
+from dataclasses import field, fields
 from pyexpat import model
 from rest_framework.serializers import SerializerMethodField , ModelSerializer
 from .models import *
@@ -44,32 +44,57 @@ class UserSerializerWithToken(UserSerrializer):
     def get_token(self, obj):
         token = RefreshToken.for_user(obj)
         return str(token.access_token)
-class ProductSerializer(ModelSerializer):
+
+#-------------------------------------------------------------------------
+class Whearhouse_Serializer(ModelSerializer):
     class Meta:
-        model=Product
+        model=Whearhouse
         fields='__all__'
 
-class ReviewSerializer(ModelSerializer):
+class Doc_info_serilizer(ModelSerializer):
     class Meta:
-        model=Review
+        model=Doc_info
         fields='__all__'
 
-class CAtegorieSerializer(ModelSerializer):
+class Pharmacien_info_serilizer(ModelSerializer):
     class Meta:
-        model=Categorie
+        model=Pharmacien_info
         fields='__all__'
+
+class Grossiste_info_serilizer(ModelSerializer):
+    class Meta:
+        model=Grociste_info
+        fields='__all__'
+
+class Pharmacie_serilizer(ModelSerializer):
+    class Meta:
+        model=Pharmacie
+        fields='__all__'
+class Whearhouse_serilizer(ModelSerializer):
+    class Meta:
+        model=Whearhouse
+        fields='__all__'
+class Drug_list_serilizer(ModelSerializer):
+    class Meta:
+        model=Drugs_list
+        fields='__all__'
+
+class Contact_mail_serilizer(ModelSerializer):
+    class Meta:
+        model=ContactMail_DPM
+        fields='__all__'
+
+class Contact_echange_serilizer(ModelSerializer):
+    class Meta:
+        model=Contact_echange
+        fields='__all__'
+
+class News_serilizer(ModelSerializer):
+    class Meta:
+        model=News
+        fields='__all__'
+
+
     
-class ContactSerializer(ModelSerializer):
-    class Meta:
-        model=contactMail
-        fields = '__all__'
 
-class CertifSerializer(ModelSerializer):
-    class Meta:
-        model=Certif
-        fields='__all__'
 
-class DemandeSerializer(ModelSerializer):
-    class Meta:
-        model=DemandeCertif
-        fields='__all__'
