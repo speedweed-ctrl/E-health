@@ -14,13 +14,11 @@ const color1='red'
 const color2='yellow'
 const color3='green'
 const rows = [
-  createData('doliprane', 500, '67854h', 'vital', '24/07/2021'),
-  createData('doliprane', 500, '67854h', 'vital', '24/07/2021'),
-  createData('doliprane', 500, '67854h', 'vital', '24/07/2021'),
-  createData('doliprane', 500, '67854h', 'vital', '24/07/2021'),
-  createData('doliprane', 500, '67854h', 'vital', '24/07/2021'),
-  createData('doliprane', 500, '67854h', 'vital', '24/07/2021'),
-  
+  createData('Ansemid', 500, '9293191', 'vital', '04/08/2021'),
+  createData('Azix', 1500, '9013605', 'vital', '15/01/2021'),
+  createData('CARBOLESS 50', 100, '9053101', 'vital', '12/03/2021'),
+  createData('DEPROXYL', 20, '9223251', 'vital', '20/11/2021'),
+  createData('DICYNONE', 500, '20723013', 'vital', '24/07/2021'),  
 ];
 
 export default function DrugTable() {
@@ -29,11 +27,11 @@ export default function DrugTable() {
       <Table sx={{ minWidth: 650 }} >
         <TableHead>
           <TableRow>
-            <TableCell>nom du medicament</TableCell>
-            <TableCell align="right">dosage &nbsp;(mg)</TableCell>
+            <TableCell>Nom du medicament</TableCell>
+            <TableCell align="right">Dosage &nbsp;(mg)</TableCell>
             <TableCell align="right">Code</TableCell>
-            <TableCell align="right">neccesite</TableCell>
-            <TableCell align="right">data de rupture</TableCell>
+            <TableCell align="right">Nécessité</TableCell>
+            <TableCell align="right">Date de rupture</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

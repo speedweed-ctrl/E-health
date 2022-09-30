@@ -27,13 +27,13 @@ useEffect(()=>{
       </Grid>
       <Grid item sx={{position:'relative' , bottom:'17rem'}} >
         <Typography variant='h2' sx={{textAlign:'center',paddingBottom:'2rem',color:'#006DC2'}}>
-          Les medicaments en repture de stock
+          Les medicaments en rupture de stock
         </Typography>
           <DrugTable/>
       </Grid>
         <Grid item style={{position:'relative',bottom:'15rem'}}>
         <Typography variant='h2' sx={{textAlign:'center',paddingBottom:'2rem',color:'#006DC2',}} >
-            latest news
+            Les dernières actualités 
         </Typography>
 
         <Grid container direction='row' spacing={14} style={{marginLeft:'1rem'}}>

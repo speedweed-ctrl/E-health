@@ -46,7 +46,7 @@ export default function NewsCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="news article"
+        title="Nouveau aticle"
         subheader="September 14, 2021"
       />
       <CardMedia
@@ -57,7 +57,7 @@ export default function NewsCard() {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Header 
+          Titre 
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

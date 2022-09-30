@@ -113,7 +113,7 @@ const Products = () => {
                   </FormControl>
 
                   </Grid>
-                <Grid item width='65%'><InputSearch placeholder='search for a product'/></Grid>
+                <Grid item width='65%'><InputSearch placeholder='Taper le code du produit'/></Grid>
                 <Grid item width='10%'><CartButton><FiSettings/><span style={{position:'relative',bottom:'5px',left:'10px'}}>settings</span></CartButton></Grid>
             </Grid>
         

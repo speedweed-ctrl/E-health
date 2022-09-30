@@ -178,7 +178,7 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block',paddingLeft:'2rem' } }}
           >
-            News
+            Actualité
           </Typography>
           </Link>
           <Link to='track' style={{textDecoration:'none',color:'white'}}>
@@ -188,7 +188,7 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block',paddingLeft:'2rem'  } }}
           >
-            Track
+            Tracker
           </Typography>
           </Link>
           <Search>
