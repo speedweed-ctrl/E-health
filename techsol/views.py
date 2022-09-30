@@ -75,8 +75,17 @@ def get_urgent_news(request):
     serilizer=News_serilizer(data,many=True)
     return Response(serilizer.data)
 
+@api_view(['GET'])
+def get_pharmacies(request):
+    data=Pharmacie.objects.all()
+    serilizer=pharmacie_serilizer(data , many=True)
+    return Response(serilizer.data)
 
-
+@api_view(['GET'])
+def get_whearhouses(request):
+    data=Whearhouse.objects.alias()
+    serilizer=Whearhouse_Serializer(data,many=True)
+    return Response(serilizer.data)
 @api_view(['GET'])
 def get_contact_dpm(request):
     data=ContactMail_DPM.objects.all()

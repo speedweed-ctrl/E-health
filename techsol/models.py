@@ -26,6 +26,7 @@ class Pharmacie(models.Model):
     email=models.EmailField()
     owner=models.ForeignKey(to=User , on_delete=models.CASCADE) 
     createdAt=models.DateField(auto_now_add=True)
+    image=models.ImageField()
     
 
     class Meta:
@@ -57,6 +58,7 @@ class Whearhouse(models.Model):
     phone_number=models.IntegerField()
     email=models.EmailField()
     createdAt=models.DateField(auto_now_add=True)
+    image=models.ImageField()
     class Meta:
         ordering=('-createdAt',)
     
@@ -91,6 +93,7 @@ class Drugs_list(models.Model):
     inRuptuer=models.BooleanField(default=False)
     dosage=models.IntegerField()
     vitality=models.CharField(max_length=9,choices=vitality , default='vital')
+    rupture_date=models.DateField(blank=True , null=True)
 
     def __str__(self):
         return str(self.name)
@@ -160,6 +163,7 @@ class New(models.Model):
     user=models.ForeignKey(to=User,on_delete=models.PROTECT)
     is_Server=models.BooleanField( default=False)
     is_approved=models.BooleanField(default=False)
+    image=models.ImageField()
     createdAt=models.DateField(auto_now=True)
 
     class Meta:

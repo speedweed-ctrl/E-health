@@ -12,7 +12,8 @@ urlpatterns = [
     path('Contact',get_contact_dpm , name='get all contact mails'),
     path('Contact/echnge',get_contact_echange,name='get all exchange contact mails'),
     path('Contact/purchase',get_contact_purchase , name='get all the amials of purchasing'),
-
+    path('pharma',get_pharmacies),
+    path('gros',get_whearhouses),
 
     
 ]

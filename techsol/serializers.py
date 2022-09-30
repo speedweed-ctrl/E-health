@@ -79,6 +79,10 @@ class Drug_list_serilizer(ModelSerializer):
         model=Drugs_list
         fields='__all__'
 
+class pharmacie_serilizer(ModelSerializer):
+    class Meta:
+        model=Pharmacie
+        fields='__all__'
 class Contact_mail_serilizer(ModelSerializer):
     class Meta:
         model=ContactMail_DPM
