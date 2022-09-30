@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid'
 import styled from '@emotion/styled'
 import {GoSettings} from 'react-icons/go'
 import {ImCart } from 'react-icons/im'
+import {FiSettings} from 'react-icons/fi'
 import axios  from 'axios';
 import ProductsCard from '../components/prodcts components/ProductsCard';
 import Pagination from '@mui/material/Pagination';
@@ -74,21 +75,25 @@ height: auto;
 const Products = () => {
 
   const [products,SetProducts] =useState([])
+  const [cat,setCAt]=useState('gros')
   
-  const getProducts=async()=>{
-      const {data}=await axios.get('http://127.0.0.1:8000/api/pharma')
+  const getProducts=async(id)=>{
+      const {data}=await axios.get(`http://127.0.0.1:8000/api/${id}`)
       SetProducts(data)
 
   }
-  
+  const handleSelectCat = event =>{
+    setCAt(event.target.value)
+    console.log(cat)
+  }
   useEffect(()=>{
-    getProducts()
-    console.log(products)
-  },[])
+    getProducts(cat)
+    
+  },[cat])
   
 
   return (
-    <Grid container direction='column' style={{marginLeft:'1rem'}} >
+    <Grid container direction='column' style={{marginLeft:'1rem',paddingTop:'2rem'}} >
         <Grid item> 
             <Grid container spacing={2}>
                 <Grid item width='6%'> <FilterButton><GoSettings/></FilterButton> </Grid>
@@ -98,16 +103,18 @@ const Products = () => {
                         <Select 
                           label="Categorie"
                           sx={ { borderRadius:'1rem', color:'#216DFC'}}
+                          onChange={handleSelectCat}
+
                         >        
-                            <MenuItem  >les Grosiste</MenuItem>
-                            <MenuItem  >les pharmacie</MenuItem>
+                            <MenuItem value='gros' >les Grosiste</MenuItem>
+                            <MenuItem value='pharma'  >les pharmacie</MenuItem>
                         </Select>
                         <FormHelperText>select  categorie</FormHelperText>
                   </FormControl>
 
                   </Grid>
                 <Grid item width='65%'><InputSearch placeholder='search for a product'/></Grid>
-                <Grid item width='10%'><CartButton><ImCart/><span style={{position:'relative',bottom:'5px',left:'10px'}}>2 items</span></CartButton></Grid>
+                <Grid item width='10%'><CartButton><FiSettings/><span style={{position:'relative',bottom:'5px',left:'10px'}}>settings</span></CartButton></Grid>
             </Grid>
         
         </Grid>

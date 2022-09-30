@@ -10,8 +10,9 @@ const ProductsCard = ({props}) => {
     <Card sx={{ minHeight: '280px', minWidth: 320 , paddingTop:'2rem' }}>
     <CardCover>
       <img
-        src={b}
-        alt=""
+        
+        src={`http://127.0.0.1:8000${props.image}`}
+
       />
     </CardCover>
     <CardCover

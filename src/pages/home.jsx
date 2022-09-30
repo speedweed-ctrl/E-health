@@ -3,8 +3,11 @@ import  Grid  from '@mui/material/Grid'
 import Opener from '../components/HomeComponents/opener'
 import Typography from '@mui/material/Typography';
 import DrugTable from '../components/HomeComponents/Table';
+import Divider from '@mui/material/Divider';
+import NewsCard from '../components/News/NewsCard'
 import axios from 'axios';
 
+const data=[11,1,1,1,1,1]
 const Home = () => {
   /*const [data,setData]=useState([])
 
@@ -24,11 +27,30 @@ useEffect(()=>{
       </Grid>
       <Grid item sx={{position:'relative' , bottom:'17rem'}} >
         <Typography variant='h2' sx={{textAlign:'center',paddingBottom:'2rem',color:'#006DC2'}}>
-          Les medicamen en repture de stock
+          Les medicaments en repture de stock
         </Typography>
           <DrugTable/>
       </Grid>
-    
+        <Grid item style={{position:'relative',bottom:'15rem'}}>
+        <Typography variant='h2' sx={{textAlign:'center',paddingBottom:'2rem',color:'#006DC2',}} >
+            latest news
+        </Typography>
+
+        <Grid container direction='row' spacing={14} style={{marginLeft:'1rem'}}>
+
+          {
+            data.map(card=>{
+              return ( 
+                <Grid item>
+                    <NewsCard/>
+                </Grid>
+              )
+            })
+          }
+            
+        </Grid>
+      </Grid>
+
     </Grid>
   )
 }

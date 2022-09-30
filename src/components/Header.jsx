@@ -171,6 +171,7 @@ export default function PrimarySearchAppBar() {
             TRACKMED
           </Typography>
           </Link>
+          <Link to='News' style={{textDecoration:'none',color:'white'}}>
           <Typography
             variant="h7"
             noWrap
@@ -179,6 +180,7 @@ export default function PrimarySearchAppBar() {
           >
             News
           </Typography>
+          </Link>
           <Link to='track' style={{textDecoration:'none',color:'white'}}>
           <Typography
             variant="h7"
