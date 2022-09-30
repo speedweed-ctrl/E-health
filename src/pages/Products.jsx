@@ -72,41 +72,20 @@ height: auto;
 
 
 const Products = () => {
-    const [cat , setCat]=useState([])
-    const [selectedCat , setSelectedCat]=useState(1)
-    const [products,setProducts]=useState([])
 
-    const GetAllCat =async()=>{
-      try{
-        const {data} = await axios.get('http://127.0.0.1:8000/api/Categories')
-        setCat(data)
-      }catch(error){
-        console.log(error)
-      }
-      
+  const [products,SetProducts] =useState([])
+  
+  const getProducts=async()=>{
+      const {data}=await axios.get('http://127.0.0.1:8000/api/pharma')
+      SetProducts(data)
+
   }
-
-  const GetProducts = async(id) =>{
-
-      try{
-          const {data}=await axios.get(`http://127.0.0.1:8000/api/Products/cat/${id}`)
-          setProducts(data)
-          console.log(data)
-      }catch(error){
-        console.log(error)
-      }
-  }
-
-  const handleSelectCat = event =>{
-    setSelectedCat(event.target.value)
-    console.log(selectedCat)
-  }
-
+  
   useEffect(()=>{
-    GetAllCat()
-    GetProducts(selectedCat)
-
-  },[selectedCat])
+    getProducts()
+    console.log(products)
+  },[])
+  
 
   return (
     <Grid container direction='column' style={{marginLeft:'1rem'}} >
@@ -119,17 +98,11 @@ const Products = () => {
                         <Select 
                           label="Categorie"
                           sx={ { borderRadius:'1rem', color:'#216DFC'}}
-                          onChange={handleSelectCat}
-                        >
-                          {
-                            cat.map((data)=>{
-                                return(
-                                    <MenuItem value={data.id} >{data.Categorie}</MenuItem>
-                                )
-                            })
-                          }
+                        >        
+                            <MenuItem  >les Grosiste</MenuItem>
+                            <MenuItem  >les pharmacie</MenuItem>
                         </Select>
-                        <FormHelperText>select product categorie</FormHelperText>
+                        <FormHelperText>select  categorie</FormHelperText>
                   </FormControl>
 
                   </Grid>

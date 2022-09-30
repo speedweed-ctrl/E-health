@@ -4,12 +4,13 @@ import CardCover from '@mui/joy/CardCover';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import b from './b.jpg'
 const ProductsCard = ({props}) => {
   return (
-    <Card sx={{ minHeight: '280px', minWidth: 320 }}>
+    <Card sx={{ minHeight: '280px', minWidth: 320 , paddingTop:'2rem' }}>
     <CardCover>
       <img
-        src={`http://127.0.0.1:8000${props.image}`}
+        src={b}
         alt=""
       />
     </CardCover>

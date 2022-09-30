@@ -1,16 +1,17 @@
-import DemandeCert from "./pages/DemandeCert";
-import GetCer from "./pages/GetCer";
 import Products from "./pages/Products";
 import {  Routes,Route } from 'react-router-dom'
-
+import Login from "./pages/Auth/Login";
+import PrimarySearchAppBar from "./components/Header";
+import Home from './pages/home'
 
 function App() {
   return (
     <>
+    <PrimarySearchAppBar></PrimarySearchAppBar>
     <Routes>
-      <Route path='shop' element={<Products/>}/>
-      <Route path='Demande' element={<DemandeCert/>}/>
-      <Route path="getcert" element={<GetCer/>}/>
+      <Route path='track' element={<Products/>}/>
+      <Route path='login' element={<Login/>}/>
+      <Route path='/' element={<Home/>}/>
     </Routes>
     </>
   );
